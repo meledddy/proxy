@@ -2,17 +2,14 @@ const easterEggs = [
   {
     id: 'window',
     label: 'Hidden Python-headed helper near the window',
-    message: 'Tiny Python Helper Found',
   },
   {
     id: 'floor',
     label: 'Hidden Python-headed helper near the floor',
-    message: 'Python Sidekick Spotted',
   },
   {
     id: 'artifact',
     label: 'Hidden Python-headed helper near the artifact corner',
-    message: 'Secret Dev Friend Found',
   },
 ]
 
@@ -41,7 +38,7 @@ function PythonEasterEggs({ onFound }) {
           aria-label={egg.label}
           className={`python-egg python-egg--${egg.id}`}
           key={egg.id}
-          onClick={() => onFound(egg.message)}
+          onClick={onFound}
           title="Tiny Python-ish helper"
           type="button"
         >

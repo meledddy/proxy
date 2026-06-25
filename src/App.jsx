@@ -69,13 +69,13 @@ function App() {
     })
   }, [questState.selectedClass, questState.selectedVibe, questState.sketchDataUrl])
 
-  const showToast = (achievementName) => {
+  const showToast = (message) => {
     const id = createToastId()
     setToasts((currentToasts) => [
       ...currentToasts,
       {
         id,
-        message: `Achievement unlocked: ${achievementName}`,
+        message,
       },
     ])
 
@@ -86,8 +86,15 @@ function App() {
     }, 2800)
   }
 
-  const recordAchievement = (achievementName) => {
-    showToast(achievementName)
+  const showAchievementToast = (achievementName) => {
+    showToast(`Achievement unlocked: ${achievementName}`)
+  }
+
+  const recordAchievement = (
+    achievementName,
+    toastMessage = `Achievement unlocked: ${achievementName}`,
+  ) => {
+    showToast(toastMessage)
     setQuestState((currentState) => {
       if (currentState.unlockedAchievements.includes(achievementName)) {
         return currentState
@@ -137,7 +144,7 @@ function App() {
       ),
     }))
 
-    nextAchievements.forEach((achievement) => showToast(achievement))
+    nextAchievements.forEach((achievement) => showAchievementToast(achievement))
   }
 
   const startQuest = () => {
@@ -159,7 +166,7 @@ function App() {
     stopVibe()
     clearQuestState()
     setQuestState(defaultQuestState)
-    showToast('Quest Reset')
+    showAchievementToast('Quest Reset')
   }
 
   const selectClass = (classId) => {
@@ -237,7 +244,14 @@ function App() {
       <footer className="app-footer">
         Made as a tiny creative side quest.
       </footer>
-      <PythonEasterEggs onFound={recordAchievement} />
+      <PythonEasterEggs
+        onFound={() =>
+          recordAchievement(
+            'Python Found',
+            'Congratulations, you find your Python',
+          )
+        }
+      />
       <AchievementToast toasts={toasts} />
     </div>
   )
