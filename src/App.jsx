@@ -3,6 +3,7 @@ import AchievementToast from './components/AchievementToast'
 import ArtifactScreen from './components/ArtifactScreen'
 import PixelButton from './components/PixelButton'
 import ProgressBar from './components/ProgressBar'
+import PythonEasterEggs from './components/PythonEasterEggs'
 import QuestRoom from './components/QuestRoom'
 import StartScreen from './components/StartScreen'
 import { generateArtifact } from './utils/artifactGenerator'
@@ -236,6 +237,7 @@ function App() {
       <footer className="app-footer">
         Made as a tiny creative side quest.
       </footer>
+      <PythonEasterEggs onFound={recordAchievement} />
       <AchievementToast toasts={toasts} />
     </div>
   )

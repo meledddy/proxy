@@ -8,6 +8,7 @@ A lightweight Vite + React single-page app that feels like a cozy indie-game dig
 - Character class picker with playful stats.
 - Music vibe picker with soft generated Web Audio tones.
 - Touch-friendly canvas sketch tool with brush controls.
+- Hidden Python-ish helper easter eggs placed around the site.
 - Local progress persistence with `localStorage`.
 - Final artifact card with copy, palette copy, sketch download, and reset actions.
 - Responsive layout for desktop and mobile.
